@@ -4,11 +4,14 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "start": "nodemon app.js"
   },
   "author": "AltCampus",
   "license": "GNU GPL V3",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
     "jest": "^26.0.1"
   }
 }

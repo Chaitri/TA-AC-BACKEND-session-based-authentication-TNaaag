@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Register User</title>
+  </head>
+  <body>
+    <header class="header flex">
+      <a href="/">Home</a>
+      <nav>
+        <a href="/users/register">Register</a>
+        <a href="/users/login">Login</a>
+      </nav>
+    </header>
+    <h1 class="page-title">Register</h1>
+    <% if(error) { %>
+    <p class="error"><%= error %></p>
+    <% } %>
+
+    <form action="/users/register" method="POST" class="form">
+      <div>
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" placeholder="Enter name" />
+      </div>
+      <div>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="Enter email" />
+      </div>
+      <div>
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+        />
+      </div>
+      <div>
+        <label for="age">Age: </label>
+        <input type="number" id="age" name="age" placeholder="Enter age" />
+      </div>
+      <div>
+        <label for="phone">Phone: </label>
+        <input
+          type="number"
+          id="phone"
+          name="phone"
+          placeholder="Enter phone number"
+        />
+      </div>
+      <input type="submit" value="Register" class="btn-submit" />
+    </form>
+  </body>
+</html>

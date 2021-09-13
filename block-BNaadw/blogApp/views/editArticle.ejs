@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Edit Article</title>
+  </head>
+  <body>
+    <header class="header flex">
+      <a href="/">Home</a>
+      <nav>
+        <a href="/articles/<%= article.slug %>">Back</a>
+        <a href="/users/logout">Logout</a>
+      </nav>
+    </header>
+    <h1>Edit Article</h1>
+    <form action="/articles/<%= article.slug %>" method="POST" class="form">
+      <div>
+        <label for="title">Title :</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Enter title"
+          value="<%= article.title %>"
+        />
+      </div>
+      <div>
+        <label for="author">Author :</label>
+        <input
+          type="text"
+          name="author"
+          id="author"
+          placeholder="Enter author"
+          value="<%= article.author %>"
+        />
+      </div>
+      <div>
+        <label for="description">Description: </label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Enter description"
+        >
+<%= article.description %></textarea
+        >
+      </div>
+      <input type="submit" value="Edit Article" class="btn" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Article Details</title>
+  </head>
+  <body>
+    <header class="header flex">
+      <a href="/">Home</a>
+      <nav>
+        <a href="/articles/new">Add Article</a>
+        <a href="/users/logout">Logout</a>
+      </nav>
+    </header>
+    <h1>Article Details</h1>
+    <div class="articles">
+      <div class="flex">
+        <div class="article-item">
+          <h3><%= article.title %></h3>
+          <h4><%= article.author %></h4>
+          <p><%= article.description %></p>
+          <p>Likes: <%= article.likes ? article.likes : 0 %></p>
+          <div class="btns">
+            <a href="/articles/<%= article.id %>/like" class="btn">Like 👍</a>
+            <a href="/articles/<%= article.id %>/dislike" class="btn"
+              >Dislike 👎</a
+            >
+            <a href="/articles/<%= article.slug %>/edit" class="btn">Edit</a>
+            <a href="/articles/<%= article.slug %>/delete" class="btn"
+              >Delete</a
+            >
+          </div>
+        </div>
+        <div class="add-comment">
+          <form
+            class="comment-form"
+            action="/articles/<%= article.slug %>/comments"
+            method="POST"
+          >
+            <div>
+              <input
+                type="text"
+                name="author"
+                id="author"
+                placeholder="Enter username"
+              />
+            </div>
+            <textarea
+              name="content"
+              placeholder="Enter Comment"
+              rows="5"
+            ></textarea>
+            <input type="submit" value="Add Comment" class="btn" />
+          </form>
+        </div>
+      </div>
+      <div class="comments">
+        <h2>Comments</h2>
+        <% article.comments.forEach(comment => { %>
+        <div class="comment-item">
+          <p class="content"><%= comment.content %></p>
+          <p class="author">- <%= comment.author %></p>
+          <div class="btns comment-btns">
+            <a href="/comments/<%= comment.id %>/edit" class="btn">Edit</a>
+            <a href="/comments/<%= comment.id %>/delete" class="btn">Delete</a>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
